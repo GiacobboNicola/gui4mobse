@@ -1,3 +1,10 @@
+# Own directories and files
+output/
+fort.*
+mobse/
+mobse.a
+mobseGUI.x
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
