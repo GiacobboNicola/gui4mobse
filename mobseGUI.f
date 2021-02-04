@@ -32,10 +32,12 @@
       OPEN(20, file='output/mobse_long.out', status='unknown')
       WRITE(20,*)'time   m1   m2   type1   type2',
      &           '   logL1   logL2   logT1   logT2',
+     &           '   logR1   logR2',
      &           '   sep   ecc'
       OPEN(21, file='output/mobse_label.out', status='unknown')
       WRITE(21,*)'time   m1   m2   type1   type2',
      &           '   logL1   logL2   logT1   logT2',
+     &           '   logR1   logR2',
      &           '   sep   ecc   label'
 *
 * Set the seed for the random number generator. 
@@ -105,7 +107,7 @@
 * print the jj step of the evolution
             write(20,180)bcm(jj,1),bcm(jj,4),bcm(jj,18),
      &         kstar(1),kstar(2),bcm(jj,5),bcm(jj,19),
-     &         bcm(jj,7),bcm(jj,21),
+     &         bcm(jj,7),bcm(jj,21),bcm(jj,6),bcm(jj,20),
      &         bcm(jj,31),bcm(jj,32)
 *
             jj = jj + 1
@@ -120,13 +122,15 @@
             kw = INT(bpp(j,33))
             WRITE(21,181)bpp(j,1),bpp(j,4),bpp(j,18),
      &         kstar(1),kstar(2),bpp(j,5),bpp(j,19),
-     &         bpp(j,7),bpp(j,21),
+     &         bpp(j,7),bpp(j,21),bpp(j,6),bpp(j,20),
      &         bpp(j,31),bpp(j,32),label(kw)
             goto 52
  60   continue
 *
- 180  FORMAT(f11.4,2f9.4,1x,2i3,2f12.4,2x,2f12.4,2x,2e12.5,2x)
- 181  FORMAT(f11.4,2f9.4,1x,2i3,2f12.4,2x,2f12.4,2x,2e12.5,2x,a8)
+ 180  FORMAT(f11.4,2f9.4,1x,2i3,2f12.4,2x,2f12.4,2x,2e12.5,2x,
+     &       2f12.4)
+ 181  FORMAT(f11.4,2f9.4,1x,2i3,2f12.4,2x,2f12.4,2x,2e12.5,2x,
+     &       2f12.4,2x,a8)
 *
 * Close output
       CLOSE(20)

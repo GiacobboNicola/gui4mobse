@@ -49,11 +49,20 @@ def plot_mass_evolution(filename='output/mobse_long.out'):
     fig = matplotlib.figure.Figure(figsize=(5, 4), dpi=200)
     data = pandas.read_csv(filename, delimiter='\s+', header=0)
     ax = fig.add_subplot(111)
-    ax.plot(data['time'], data['m1'], lw=2, c='forestgreen')
-    ax.plot(data['time'], data['m2'], lw=2, c='deepskyblue')
+    ax.plot(data['time'], data['m1'], lw=2, c='forestgreen', label='$M_1$')
+    ax.plot(data['time'], data['m2'], lw=2, c='deepskyblue', label='$M_2$')
     ax.set_xlabel('$t$ [Myr]')
-    ax.set_ylabel('$m$ [R$_\odot$]')
+    ax.set_ylabel('$m$ [M$_\odot$]')
     ax.set_xscale('log')
+    # right y-axis
+    axr = ax.twinx()
+    axr.plot(data['time'], data['sep'], ls='--', lw=1.5, c='k', label='separation')
+    axr.plot(data['time'], data['logR1'], ls='--', lw=1, c='forestgreen', label='$R_1$')    
+    axr.plot(data['time'], data['logR2'], ls='--', lw=1, c='deepskyblue', label='$R_2$')
+    axr.set_ylabel('[R$_\odot$]')
+    axr.set_yscale('log')
+    ax.legend(loc='upper right',frameon=False)
+    axr.legend(loc='upper center', frameon=False)
     #print(data.columns)
     return fig
 # ------------------------------ Beginning of Matplotlib helper codes ----------------------

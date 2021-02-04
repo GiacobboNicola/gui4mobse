@@ -4,6 +4,9 @@ fort.*
 mobse/
 mobse.a
 mobseGUI.x
+source-code-master.tar.gz
+input/
+fort*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
