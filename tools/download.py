@@ -20,7 +20,7 @@ class GetMOBSE:
             print("WRONG branch!")
             print("Please choose one from: stand-alone, amuse, petar")
             exit()
-        self.version = "2.0" #It will be active in the next future
+        self.version = "1.0" #It will be active in the next future
         self.name = name
 
     def directory(self):
@@ -67,8 +67,6 @@ class GetMOBSE:
         print("-----------------------------------------------------------------------------------")
 
 if __name__ == "__main__":
-
-    import tarfile
 
     instance = GetMOBSE('mobse')
     instance.main()
