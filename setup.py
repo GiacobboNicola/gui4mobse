@@ -1,18 +1,28 @@
 #!/usr/bin/env python
 
 try:
-    from setuptools import setup
+  from setuptools import setup
+  from setuptools.command.install import install
 except ImportError:
-    from distutils.core import setup
+  from distutils.core import setup
+  from distutils.command.install import install
 
-from tools import download
+import subprocess
 
-instance = download.GetMOBSE('mobse')
-instance.main()
+
+def load_mobse():
+  from tools import download
+  instance = download.GetMOBSE('mobse')
+  instance.main()
+
+class InstallMOBSECommand(install):
+  def run(self):
+    install.run(self)
+    load_mobse()
 
 setup(
   name = 'GUI4MOBSE',
-  version = 'v1.0.0',      
+  version = '1.0.0',      
   license ='MIT',  
   description = 'Graphic Unit Interface for `MOBSE <https://mobse-webpage.netlify.app>`.',
   #long_description='See the github `repository <https://github.com/GiacobboNicola/PubRec>`_.',
@@ -25,12 +35,15 @@ setup(
   py_modules = ['gui4mobse'],
   scripts = ['bin/gui4mobse'],
   #packages=setuptools.find_packages(),
-  install_requires=[        
+  install_requires = [ 
           'PySimpleGUI',
-          'PIL',
-          'base64',
+          'Pillow',
+          'pybase64',
           'pandas'
       ],
+  cmdclass = {
+          'install': InstallMOBSECommand,
+  },
   include_package_data = True,
   classifiers = [
     'Development Status :: 3 - Alpha',      # Chose either "3 - Alpha", "4 - Beta" or "5 - Production/Stable" as the current state of your package
