@@ -6,7 +6,8 @@ mobse_n*
 mobse.a
 mobseGUI.x
 source-code-v1.0.tar
-input/
+input/binary.h
+input/parameters.h
 fort*
 
 # Byte-compiled / optimized / DLL files
