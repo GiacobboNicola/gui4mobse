@@ -15,10 +15,15 @@ def load_mobse():
   instance = download.GetMOBSE('mobse')
   instance.main()
 
+def compile_mobse():
+  subprocess.run(['make','clean'])
+  subprocess.run(['make','mobseGUI'])
+
 class InstallMOBSECommand(install):
   def run(self):
     install.run(self)
     load_mobse()
+    compile_mobse()
 
 setup(
   name = 'GUI4MOBSE',
@@ -31,7 +36,7 @@ setup(
   author_email = 'giacobbo.nicola@gmail.com', 
   url = 'https://github.com/GiacobboNicola/gui4mobse',   
   #download_url = 'https://github.com/GiacobboNicola/PubRec/archive/v1.0.1.tar.gz', 
-  keywords = ['ADS', 'citations'],
+  keywords = ['MOBSE', 'GUI', 'PySimpleGUI'],
   py_modules = ['gui4mobse'],
   scripts = ['bin/gui4mobse'],
   #packages=setuptools.find_packages(),

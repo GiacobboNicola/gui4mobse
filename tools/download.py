@@ -3,24 +3,12 @@ import os
 import tarfile
 
 class GetMOBSE:
-    def __init__(self, name="mobse", env="stand-alone"):
-
-        gitpath = 'https://gitlab.com/mobse/source-code/-/archive/master/source-code-'
-        Branches = {
-            'stand-alone': 'master',
-            'amuse': 'amuse',
-            'petar': 'petar'
-            }
-        if(Branches.get(env)):
-            self.branch = env
-            self.url = gitpath+Branches.get(env)+'.tar.gz'
-            self.tarname = 'source-code-'+Branches.get(env)
-
-        else:
-            print("WRONG branch!")
-            print("Please choose one from: stand-alone, amuse, petar")
-            exit()
-        self.version = "1.0" #It will be active in the next future
+    
+    def __init__(self, name="mobse"):
+        self.version = "v1.0" #It will be active in the next future
+        self.sourcename =  'source-code-'+self.version
+        self.tarname = self.sourcename+'.tar'
+        self.url = 'https://gitlab.com/mobse/source-code/-/archive/v1.0/'+self.tarname
         self.name = name
 
     def directory(self):
@@ -40,7 +28,7 @@ class GetMOBSE:
                 if counter > 2: 
                     print(" -----> Be carefull! Too many copy of the folder.")
             os.rename(self.name, self.name+'.{0}'.format(counter))
-        os.rename(self.tarname, self.name)
+        os.rename(self.sourcename, self.name)
         
     def main(self):
         print("-----------------------------------------------------------------------------------")
@@ -55,7 +43,7 @@ class GetMOBSE:
         print("-----------------------------------------------------------------------------------")
         print("---> Untar files")
 
-        tar = tarfile.open(self.tarname+'.tar.gz', 'r:gz')
+        tar = tarfile.open(self.tarname)
         tar.extractall()
         tar.close()
 

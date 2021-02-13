@@ -24,7 +24,7 @@
       PARAMETER(tol=1.d-07)
       CHARACTER*8 label(14)
       real*8 t1,t2,mx,mx2,tbx,eccx
- 
+* 
       INCLUDE 'input/parameters.h'
       INCLUDE 'input/binary.h'
 *

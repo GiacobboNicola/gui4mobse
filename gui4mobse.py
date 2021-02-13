@@ -1,4 +1,11 @@
+#!/usr/bin/env python
 '''
+           _/  _/   
+╔═╗╦ ╦╦   _/  _/    ╔╦╗╔═╗╔╗ ╔═╗╔═╗
+║ ╦║ ║║  _/_/_/_/   ║║║║ ║╠╩╗╚═╗║╣   
+╚═╝╚═╝╩     _/      ╩ ╩╚═╝╚═╝╚═╝╚═╝
+           _/
+
 Graphic Interface to evolve single system with MOBSE (by using the public version).
 It's based on PySimpleGUI (https://pypi.org/project/PySimpleGUI/).
 Author: N. Giacobbo
@@ -37,16 +44,19 @@ def replace_input(element, value, file):
             line = '      ' + element + ' = ' + str(value) + '\n' 
         sys.stdout.write(line)
 
-def compile_and_run():
+def compile_and_run(compile=False):
     # Check the prence of the mobse's folder
     if not os.path.exists('mobse'):
-           subprocess.run(['python','download.py']) 
-    subprocess.run(['make','clean'])
-    subprocess.run(['make','mobseGUI'])
+            print('Warning: you have to download MOBSE!')
+            #subprocess.run(['python','tools/download.py']) 
+    if compile:
+        subprocess.run(['make','clean'])
+        subprocess.run(['make','mobseGUI'])
+
     subprocess.run(['./mobseGUI.x'])
 
 def plot_mass_evolution(filename='output/mobse_long.out'):
-    fig = matplotlib.figure.Figure(figsize=(5, 4), dpi=200)
+    fig = matplotlib.figure.Figure(figsize=(8, 7), dpi=200)
     data = pandas.read_csv(filename, delimiter='\s+', header=0)
     ax = fig.add_subplot(111)
     ax.plot(data['time'], data['m1'], lw=2, c='forestgreen', label='$M_1$')
@@ -149,7 +159,7 @@ with open("pics/logo_mobse_small.png", "rb") as img:
 
 # Set first column: INPUTS 
 column_inputs = [
-    [sg.Text('', size=(7,1)), sg.Image(data=my_icon_small, key='__IMAGE__', size=(100, 85))],
+    [sg.Text('', size=(7,1)), sg.Image(data=my_icon_small, key='__IMAGE__', size=(120, 100))],
     [sg.Text('_'  * 130, size=(30, 1))],
     [sg.Text('Initial conditions:', justification='center', font=('Arial', 16), size=(20, 1))],  
     [sg.Text('M1 [Msun] =', size=(10, 1)), sg.Input(key='m1', default_text=20., size=(10,1))],
@@ -198,7 +208,7 @@ while True:  # Event Loop
             replace_input(i,values[i], 'input/parameters.h')
     elif event == 'Run':
         # Run MOBSE
-        compile_and_run()
+        subprocess.run(['./mobseGUI.x'])
     if event == 'Plot':
             fig = plot_mass_evolution()
             image = figure_to_image(fig)
