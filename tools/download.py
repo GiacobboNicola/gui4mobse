@@ -26,7 +26,7 @@ class GetMOBSE:
             while os.path.exists(self.name+'_n{0}'.format(counter)):
                 counter += 1
                 if counter > 2: 
-                    print(" -----> Be carefull! Too many copy of the folder.")
+                    print("    |----> Be carefull! Too many copy of the folder.")
             os.rename(self.name, self.name+'_n{0}'.format(counter))
         os.rename(self.sourcename, self.name)
         
