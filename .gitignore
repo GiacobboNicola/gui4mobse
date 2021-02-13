@@ -2,6 +2,7 @@
 output/
 fort.*
 mobse/
+mobse_n*
 mobse.a
 mobseGUI.x
 source-code-v1.0.tar

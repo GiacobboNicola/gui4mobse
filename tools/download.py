@@ -23,11 +23,11 @@ class GetMOBSE:
     def rename_dir(self):
         if os.path.exists(self.name):
             counter = 0
-            while os.path.exists(self.name+'.{0}'.format(counter)):
+            while os.path.exists(self.name+'_n{0}'.format(counter)):
                 counter += 1
                 if counter > 2: 
                     print(" -----> Be carefull! Too many copy of the folder.")
-            os.rename(self.name, self.name+'.{0}'.format(counter))
+            os.rename(self.name, self.name+'_n{0}'.format(counter))
         os.rename(self.sourcename, self.name)
         
     def main(self):

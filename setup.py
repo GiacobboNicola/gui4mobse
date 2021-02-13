@@ -23,7 +23,7 @@ class InstallMOBSECommand(install):
   def run(self):
     install.run(self)
     load_mobse()
-    compile_mobse()
+    #compile_mobse()
 
 setup(
   name = 'GUI4MOBSE',

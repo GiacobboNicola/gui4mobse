@@ -49,10 +49,8 @@ def compile_and_run(compile=False):
     if not os.path.exists('mobse'):
             print('Warning: you have to download MOBSE!')
             #subprocess.run(['python','tools/download.py']) 
-    if compile:
-        subprocess.run(['make','clean'])
-        subprocess.run(['make','mobseGUI'])
-
+    subprocess.run(['make','clean'])
+    subprocess.run(['make','mobseGUI'])
     subprocess.run(['./mobseGUI.x'])
 
 def plot_mass_evolution(filename='output/mobse_long.out'):
@@ -208,7 +206,7 @@ while True:  # Event Loop
             replace_input(i,values[i], 'input/parameters.h')
     elif event == 'Run':
         # Run MOBSE
-        subprocess.run(['./mobseGUI.x'])
+        compile_and_run()
     if event == 'Plot':
             fig = plot_mass_evolution()
             image = figure_to_image(fig)
