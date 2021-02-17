@@ -1,8 +1,8 @@
 ```                                                                                                 
            _/  _/   
-╔═╗╦ ╦╦   _/  _/    ╔╦╗╔═╗╔╗ ╔═╗╔═╗
-║ ╦║ ║║  _/_/_/_/   ║║║║ ║╠╩╗╚═╗║╣   
-╚═╝╚═╝╩     _/      ╩ ╩╚═╝╚═╝╚═╝╚═╝
+╔═╗╦ ╦╦   _/  _/   ╔╦╗╔═╗╔╗ ╔═╗╔═╗
+║ ╦║ ║║  _/_/_/_/  ║║║║ ║╠╩╗╚═╗║╣   
+╚═╝╚═╝╩     _/     ╩ ╩╚═╝╚═╝╚═╝╚═╝
            _/
 ```
 [![GitHub](https://img.shields.io/github/license/giacobbonicola/gui4mobse?color=lightblue)](https://github.com/GiacobboNicola/gui4mobse/blob/main/LICENSE)
