@@ -1,7 +1,7 @@
 # Own directories and files
 output/
-fort.*
 mobse/
+plots/
 mobse_n*
 mobse.a
 mobseGUI.x
@@ -10,6 +10,7 @@ input/*.h
 fort*
 
 # Byte-compiled / optimized / DLL files
+tools/__pyche__/
 __pycache__/
 *.py[cod]
 *$py.class

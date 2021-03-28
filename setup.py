@@ -27,7 +27,7 @@ class InstallMOBSECommand(install):
 
 setup(
   name = 'GUI4MOBSE',
-  version = '1.0.0',      
+  version = '0.1',      
   license ='MIT',  
   description = 'Graphic Unit Interface for `MOBSE <https://mobse-webpage.netlify.app>`.',
   #long_description='See the github `repository <https://github.com/GiacobboNicola/PubRec>`_.',
