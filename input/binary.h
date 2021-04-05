@@ -1,6 +1,6 @@
 * Binary to evolve
 
-      m1 = 20.0
+      m1 = 60.0
       m2 = 10.0
       tb = 1000.0
       z = 0.02

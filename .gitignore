@@ -7,7 +7,11 @@ mobse.a
 mobseGUI.x
 source-code-v1.0.tar
 input/*.h
+input/binary.in
 fort*
+
+# Mac
+.DS_Store
 
 # Byte-compiled / optimized / DLL files
 tools/__pyche__/
