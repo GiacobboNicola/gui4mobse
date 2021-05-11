@@ -14,14 +14,14 @@ This is a simple Graphic Interface that allows to use [MOBSE](https://mobse-webp
 ## Usage
 First, you need to download the source code of *MOBSE* by typing `python download.py`.
 
-After that, you simply have to run the command `python gui4mobse.py`. A window like the one in shown in [fig.1](pics/gui_entri.png) will open. 
+After that, you simply have to run the command `python gui4mobse.py`. A window like the one shown in [fig.1](pics/gui_entri.png) will open. 
 
 ![img](pics/gui_entri.png)
 
 To build you preferred system you can change the various *Initial conditions* and *Parameters*. Once you are happy with the values, don't forget to press the `Update` button to save them.  
 Now you are ready to use `Run`. It will compile and run *MOBSE* to evolve your system. 
 
-After execution you will find the evolution saved in two txt files called `mobse_long.out` and `mobse_label.out` (stored in `output`). With `Plot`, you can visualize the evolution of some important properties (i.e. masses, radii and orbital separation) as shown in [fig.2](pics/gui.png)).
+After execution you will find the evolution saved in two `.txt` files called `mobse_long.out` and `mobse_label.out` (stored in `output/`). With `Plot`, you can visualize the evolution of some important stellar and binary properties (i.e. masses, radii and orbital separation) as shown in [fig.2](pics/gui.png)).
 
 ![img](pics/gui.png)
 
